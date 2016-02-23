@@ -1,0 +1,63 @@
+<html>
+<head>
+
+<meta charset="utf-8">
+<title>sparqln</title>
+
+<script type="text/javascript" src="sparqln.js"></script>
+<link href="sparqln.css" rel="stylesheet"/>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.js"></script>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css" rel="stylesheet"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/js/jquery-editable-poshytip.min.js"></script>
+
+</head>
+<body>
+
+
+
+
+<!-- endpoint list -->
+<h2>Endpoint List</h2>
+<div id="endpoint_list">
+</div>
+
+<!-- endpoint list template-->
+<script type="text/x-jquery-tmpl" id="endpoint_list_tmpl">
+	<div class="list_item">
+		<button onclick="sparqln.load_graph('${url}')">
+			${name}
+		</button>
+	</div>
+</script>
+
+
+
+
+<!-- graph list -->
+<h2>Graph List</h2>
+
+<div>
+	Endpoint URL: <span id="selected_endpoint"></span>
+</div>
+
+<div id="graph_list"></div>
+
+<!-- graph list template -->
+<script type="text/x-jquery-tmpl" id="graph_list_tmpl">
+	<div class="list_item">
+		<span class="numbering">${i}.</span>
+		<button onclick="sparqln.open_triple_window('${v.g.value}')">
+			${v.g.value}
+		</button>
+	</div>
+</script>
+
+
+
+
+
+</body>
+</html>

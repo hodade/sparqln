@@ -1,0 +1,36 @@
+body {
+	font-size:11px;
+}
+
+.list_item {
+
+}
+
+.numbering {
+	color:#888;
+}
+
+.subject_line {
+	border-bottom:2px solid #B68FF1;
+	margin:10px 0;
+}
+
+.subject {
+}
+
+.predicate_line {
+	padding-left:20px;
+	margin:4px 0;
+}
+
+.predicate {
+	color:#fff;
+	background-color:#35AAB7;
+	border:1px solid #35AAB7;
+	border-radius:4px;
+	padding:0 2px;
+}
+
+.object {
+	color:#333;
+}

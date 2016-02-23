@@ -1,0 +1,77 @@
+<html>
+<head>
+
+<meta charset="utf-8">
+<title>sparqln</title>
+
+<script type="text/javascript" src="sparqln.js"></script>
+<link href="sparqln.css" rel="stylesheet"/>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.js"></script>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css" rel="stylesheet"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/js/jquery-editable-poshytip.min.js"></script>
+
+<script type="text/javascript">
+
+//最初に実行
+window.addEventListener("DOMContentLoaded",function(eve){
+	//パラメータ読み取ってトリプル取得処理を実行
+	var params = GetQueryString();
+	if (params.endpoint_url[0] && params.graph_uri[0]) {
+		sparqln.current_endpoint_url = params.endpoint_url[0];
+		sparqln.load_triple(params.graph_uri[0]);
+	}
+
+},false);
+
+</script>
+
+</head>
+<body>
+
+
+
+
+<!-- triple list -->
+<h2>Triple List</h2>
+
+<div>
+	GRAPH: <span id="selected_graph"></span>
+</div>
+
+<div id="triple_list" class="triple_list"></div>
+
+<!-- triple list subject template -->
+<script type="text/x-jquery-tmpl" id="triple_list_top_tmpl">
+	<div class="subject_line">
+		<span class="numbering">${i}.</span>
+		<span class="subject">${v.s.value}</span>
+	</div>
+</script>
+
+<!-- triple list predicate & object template -->
+<script type="text/x-jquery-tmpl" id="triple_list_second_tmpl">
+	<div class="predicate_line">
+		<span class="numbering">${i}.</span>
+		<span class="predicate">${v.p.value}</span> 
+		<span class="object">${v.o.value}</span>
+	</div>
+</script>
+
+<!-- triple list more template -->
+<script type="text/x-jquery-tmpl" id="triple_list_more_tmpl">
+	<hr>
+	<div class="more_line">
+		<button onclick="sparqln.load_triple('${g}',${offset}); $(this).parent().remove();">
+			more ${offset}-
+		</button>
+	</div>
+</script>
+
+
+
+
+</body>
+</html>

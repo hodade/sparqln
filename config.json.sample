@@ -1,0 +1,12 @@
+{
+	"endpoints":[
+		{
+			"name" : "ja.dbpedia.org",
+			"url" : "http://ja.dbpedia.org/sparql?query=<SPARQL>&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on"
+		},
+		{
+			"name" : "togowiki",
+			"url" : "http://dev.togogenome.org/sparql-test?default-graph-uri=&query=<SPARQL>&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on"
+		}
+	]
+}
